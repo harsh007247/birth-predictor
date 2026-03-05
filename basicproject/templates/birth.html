@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Child Birth Weight Predictor</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-box">
+        <h1>Child Birth Weight Predictor</h1>
+        <p class="subtitle">Enter mother's health details</p>
+
+        <form action="/predict" method="post">
+
+            <div class="input-group">
+                <label>Gestation (Days)</label>
+                <input type="number" name="gestation" placeholder="Enter gestation days" required>
+            </div>
+
+            <div class="input-group">
+                <label>Parity</label>
+                <input type="number" name="parity" placeholder="0 = first child, 1 = otherwise" required>
+            </div>
+
+            <div class="input-group">
+                <label>Mother Age</label>
+                <input type="number" name="age" placeholder="Enter mother's age" required>
+            </div>
+
+            <div class="input-group">
+                <label>Mother Height (cm)</label>
+                <input type="number" name="height" placeholder="Enter height in cm" required>
+            </div>
+
+            <div class="input-group">
+                <label>Mother Weight (kg)</label>
+                <input type="number" name="weight" placeholder="Enter weight in kg" required>
+            </div>
+
+            <div class="input-group">
+                <label>Smoking Status</label>
+                <select name="smoke">
+                    <option value="0">Non-Smoker</option>
+                    <option value="1">Smoker</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict Birth Weight</button>
+
+        </form>
+        <h3> Predicted Birth Weight: {{prediction}} </h3>
+    </div>
+</div>
+
+
+</body>
+</html>
