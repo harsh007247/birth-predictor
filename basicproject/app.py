@@ -31,7 +31,7 @@ def get_cleaned_data(form_data):
 
     return cleaned_data
 
-@app.route("/predict",methods=["POSt"])
+@app.route("/predict",methods=["POST"])
 
 def predictbirth():
     #collect the info from ui
@@ -41,7 +41,7 @@ def predictbirth():
     #making data frame
     baby_df=pd.DataFrame(baby_data_form)
     #opening the save model
-    with open("model/model.pkl","rb") as obj:
+    with open("model.pkl","rb") as obj:
         mymodel=pk.load(obj)
 
     prediction=mymodel.predict(baby_df)
